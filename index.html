@@ -1,163 +1,724 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Mon site web</title>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Msimnat Zohra</title>
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <!--slick slider stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
+  <!-- slick slider -->
+
+  <link rel="stylesheet" href="css/slick-theme.css" />
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+<style>
+  .product-image {
+    width: 100%; /* This will make the image responsive, adjusting to the container width */
+    height: 100%; /* This ensures the image maintains its aspect ratio */
+    max-width: 500px; /* Optional: You can set a maximum width if you want to limit the size */
+  }
+  
+
+  *,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  background: #f4f4f4;
+}
+
+.debug {
+  border: 1px solid red;
+}
+.debug .debug {
+  border: 1px solid blue;
+}
+
+button {
+  padding: 10px 10px;
+  -webkit-appareance: none;
+  text-align: center;
+  white-space: nowrap;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background: #2699bf;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  transition: all 450ms ease-in-out, box-shadow 750ms ease-in-out;
+}
+button:hover {
+  background: #196e8a;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+}
+.rounded {
+  border-radius: 50%;
+}
+
+#wrapper {
+  float: left;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+.container {
+  width: 1280px;
+  margin: auto;
+}
+
+@media screen and (max-width: 1400px) {
+  .container {
+    width: 100%;
+  }
+}
+
+/* Card */
+.card-container {
+  float: left;
+  width: 280px;
+  height: 375px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 30px;
+}
+.card {
+  position: relative;
+  z-index: 5;
+  display: block;
+  float: left;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.45);
+}
+.card-thumbnail {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 230px;
+}
+.thumbnail-link {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.thumbnail-button {
+  position: absolute;
+  top: 5px;
+  z-index: 9;
+  display: block;
+  width: auto;
+  height: 40px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: white;
+  text-align: center;
+  border-radius: 20px;
+  background: #171e23;
+}
+.thumbnail-button img {
+  border-radius: 50%;
+}
+.thumbnail-button img,
+.thumbnail-button .card-trigger-label {
+  display: table-cell;
+  vertical-align: middle;
+}
+.new-button {
+  z-index: 7;
+  width: auto;
+  left: 5px;
+  background: transparent;
+}
+.card-trigger {
+  display: table;
+  table-layout: auto;
+  right: 5px;
+  width: 100px;
+  cursor: pointer;
+  background: #f4f4f4;
+  color: #171e23;
+}
+
+.card-infos {
+  float: left;
+  width: 100%;
+  position: relative;
+  top: 0;
+  z-index: 8;
+  padding-top: 10px;
+  background: #fff;
+  transition: margin-top 450ms ease-in-out;
+}
+
+.product-name,
+.product-bottom {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.product-name {
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 21px;
+  line-height: 36px;
+  font-weight: 300;
+}
+.product-price {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 28px;
+  font-weight: 400;
+  color: white;
+  text-align: center;
+  background: #171e23;
+}
+
+.product-bottom {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 0;
+  transition: height 450ms ease-in-out, padding-top 450ms ease-in-out,
+    padding-bottom 450ms ease-in-out;
+}
+.btn-add-to-cart,
+.btn-add-to-cart button {
+  width: 100%;
+  padding: 0;
+  transition: padding 650ms ease-in-out;
+}
+.card:hover .btn-add-to-cart button {
+  padding: 10px;
+}
+.btn-add-to-cart button {
+  width: 100%;
+}
+.card:hover .product-bottom {
+  display: table;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Card is-opened */
+.card:hover .card-infos {
+  margin-top: -58px;
+}
+.card.is-opened .product-price,
+.card.is-opened .product-bottom {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.card.is-opened .product-price,
+.card.is-opened .product-bottom {
+  display: block !important;
+  height: auto;
+}
+
+</style>
 </head>
+
 <body>
-    <ul class="nav">
-        <li class="element"><a href="index.html">Accueil</a></li>
-        <li class="element decloncher-nos-cours">Nos Cours</li>
-        <li class="element decloncher-ressources">Ressources</li>
-        <li class="element decloncher-moi">A propos moi</li>
-    </ul>
 
+  <div class="main_body_content">
 
-    <div class="modal modal-nos-cours">
-        <div class="modal-content">
-            <span class="fermer-button">×</span>
-            <h1>nos cours</h1>
-            <a href="cours/HTML.pdf" target="_blank">HTML</a><br><br>
-            <a href="cours/css.pdf" target="_blank">CSS</a><br><br>
-            <a href="cours/JS.pdf" target="_blank">javascript</a><br><br>
+    <div class="hero_area">
+      <!-- header section strats -->
+      <header class="header_section">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="index.html">
+              Msimnat Zohra
+            </a>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""> </span>
+            </button>
+
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#"> About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Contact Us</a>
+                </li>
+              </ul>
+              <div class="quote_btn-container">
+                <form class="form-inline">
+                  <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+                </form>
+                <a href="">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </nav>
         </div>
-    </div>
-
-
-    <div class="modal modal-ressources">
-        <div class="modal-content">
-            <span class="fermer-button">×</span>
-            <h1>Les ressources:</h1>
-            <h4>Images: <a href="https://unsplash.com" target="_blank">Unsplash</a>
-            <h4>Coleurs: <a href="https://coolors.co" target="_blank">Coolors.co</a></h4>
-            <h4>SVGs: <a href="https://undraw.co/illustrations" target="_blank">undraw</a></h4>
-            <h4>Andika Font: <a href="https://fonts.google.com/" target="_blank">Google fonts</a> </h4>
-            </h4>
-        </div>
-    </div>
-
-
-    <div class="modal modal-moi">
-        <div class="modal-content">
-            <span class="fermer-button">×</span>
-            <div class="card">
-                <img src="images/avatar.png" style="width:85%">
-                <div class="container">
-                  
-                  <p></p><h3><span> L'étudiant:</span></h3>HEBBAJ SIF-EDDINE  <br>
-                    <h3><span>  Section et group :</span></h3> B B02 B0202 <br>
-                       <h3><span>Annees :</span></h3>  2022/2023 <br><p></p>
-                  <p></p><address>sifeddine.hebbaj@um5r.ac.ma</address><p></p>
+      </header>
+      <!-- end header section -->
+      <!-- slider section -->
+      <section class="slider_section ">
+        <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="detail_box">
+                      <h1 style="color: black;">
+                        Msimnat <br>
+                        <span>
+                          Zohra
+                        </span>
+                      </h1>
+                      <a href="#">
+                        <span style="color: black;">
+                          Read More
+                        </span>
+                        <img src="images/ba.png" alt="">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-md-4 ml-auto">
+                    <div class="img-box">
+                      <img src="images/slider-img.png" alt="">
+                    </div>
+                  </div>
                 </div>
               </div>
-            
+            </div>
+            <div class="carousel-item ">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="detail_box">
+                      <h1>
+                        Msimnat <br>
+                        <span>
+                          Zohra
+                        </span>
+                      </h1>
+                      <a href="#">
+                        <span>
+                          Read More
+                        </span>
+                        <img src="images/white-arrow.png" alt="">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-md-4 ml-auto">
+                    <div class="img-box">
+                      <img src="images/slider-img.png" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item ">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="detail_box">
+                      <h1>
+                        Msimnat <br>
+                        <span>
+                          Zohra
+                        </span>
+                      </h1>
+                      <a href="#">
+                        <span>
+                          Read More
+                        </span>
+                        <img src="images/white-arrow.png" alt="">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-md-4 ml-auto">
+                    <div class="img-box">
+                      <img src="images/slider-img.png" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="carousel_btn-box">
+          <a class="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </section>
+      <!-- end slider section -->
     </div>
 
-    <header>
-        <div>
-            <p>Bonjour , je suis SIF-EDDINE HEBBAJ , étudiant à la faculté des sciences de Rabat , Filiere SMI .
-
-                Ce site présente mon travail , après avoir appris html , css et javascript lors du cours donné par Pr. Souidi , notre professeur du module de Technologies du Web à <a href="http://www.fsr.ac.ma" target="_blank"><br> la faculté des sciences de Rabat</a>
-            </p>
-            <button class="decloncher-contenu-cours">Contenu de notre cours</button>
-            <div class="modal modal-centenu-cours">
-                <div class="modal-content">
-                    <span class="fermer-button">×</span>
-                    <h1>Cours</h1>
-                    <a href="cours/chap1-3.pdf" target="_blank">Chap1-3</a><br>
-                    <a href="cours/chap4.pdf" target="_blank">Chap4</a><br>
-                    <a href="cours/chap5.pdf" target="_blank">Chap5</a><br>
-                    <a href="cours/chap6.pdf" target="_blank">Chap6</a><br>
-                    <a href="cours/chap7.pdf" target="_blank">Chap7</a><br>
-                    <h1>TD</h1>
-                    <a href="TD/TD1.pdf" target="_blank">TD1</a><br>
-                    <a href="TD/TD2.pdf" target="_blank">TD2</a><br>
-                    <h1>TP</h1>
-                    <a href="TP/TP-1.pdf" target="_blank">TP1</a><br>
-                    <a href="TP/TP-2.pdf" target="_blank">TP2</a><br>
-                    <a href="TP/TP-3.pdf" target="_blank">TP3</a><br>
-                    <a href="TP/TP-4.pdf" target="_blank">TP4</a><br>
-                    <a href="TP/TP-5.pdf" target="_blank">TP5</a><br>
-                    <a href="TP/TP-6.pdf" target="_blank">TP6</a><br>
-                    <a href="TP/TP-7.pdf" target="_blank">TP7</a><br>
-                    <a href="TP/Tp-8.pdf" target="_blank">TP8</a><br>
-                </div>
-            </div>
-        </div>
-        <img src="images/undraw_educator_re_ju47.svg" alt="">
-    </header>
-    <div class="wave">t</div>
-
-    <main>
-        <div class="section1">
-            <img src="images/image2.png" alt="">
-            <div>
-                <h2>Apprenez la programmation</h2>
-            <p>
-                La programmation, appelée aussi codage dans le domaine informatique, désigne l'ensemble des activités qui permettent l'écriture des programmes informatiques. C'est une étape importante du développement de logiciels (voire de matériel).
-
-L'écriture d'un programme se fait dans un langage de programmation. Un logiciel est un ensemble de programmes (qui peuvent être écrits dans des langages de programmation différents) destiné à la réalisation de certaines tâches par un (ou plusieurs) utilisateurs du logiciel. <a href="https://docs.python.org/fr/3/tutorial/" target="_blank">Source</a>
-            </p>
-            <button class="decloncher-programmation">Savoir plus</button>
-
-            <div class="modal modal-programmation">
-                <div class="modal-content">
-                    <span class="fermer-button">×</span>
-                    <h1>programmation</h1>
-                    <a href="module/courJava.pdf" target="_blank">Java</a><br><br>
-                    <a href="module/courPHP.pdf" target="_blank">PHP</a><br><br>
-                    <a href="module/cours-c.pdf" target="_blank">Langage C</a><br><br>
-                    <a href="module/Cours_C_sharp.pdf" target="_blank">C sharp</a><br><br>
-                    <a href="module/cours-python.pdf" target="_blank">Python</a><br><br>
-                    
-                </div>
-            </div>
-            </div>
-        </div>
+   
     
-        <div class="section1">
-            
-            <div class="text">
-                <h2>Les meilleurs chaines Youtube pour apprendre la programmation</h2>
-            <p>
-                YouTube est devenu incontournable car hébergeant des centaines des milliers des chaines disposant des vidéos sur presque tous les domaines…
 
-                Vous trouverez de vidéos sur presque tout et n’importe quoi sur YouTube.
-                
-                Autrefois, on a fait le tour avec les chaines High-Tech, celles sur la Science et aujourd’hui c’est à la programmation web qu’on va jeter un regard. <a href="https://galatruc.net/chaines-youtube-pour-apprendre-le-developpement-web/" target="_blank">Source</a>
-            </p>
-            <button class="decloncher-youtube">Savoir plus</button>
-            </div>
+    <!-- chocolate section -->
 
-            <div class="modal modal-youtube">
-                <div class="modal-content">
-                    <span class="fermer-button">×</span>
-                    <h1>youtube</h1>
-                    <a href="https://www.youtube.com/@MichelKartner" target="_blank">Michel Kartner</a><br><br>
-                    <a href="https://www.youtube.com/@CodeAvecJonathan" target="_blank">CodeAvecJonathan</a><br><br>
-                    <a href="https://www.youtube.com/@programmingwithmosh/featured" target="_blank">Programming with Mosh </a><br><br>
-                    <a href="https://www.youtube.com/@freecodecamp" target="_blank">freeCodeCamp.org</a><br><br>
-                    
-                </div>
-            </div>
-
-
-            <img src="images/image3.png" alt="">
+    <section class="chocolate_section ">
+      <div class="container">
+        <div class="heading_container">
+          <h2>
+            منتجاتنا
+          </h2>
+          <p>
+            نقدم لك مجموعة من المأكولات المغربية اللذيذة التي ستأخذك في رحلة طعم لا تُنسى.
+                    </p>
         </div>
-    </main>
+      </div>
+      <div class="container">
+        <div class="chocolate_container">
+          <div class="box">
+            <div class="img-box">
+              <img src="images/OIP.jpg" alt="مسمن">>
+            </div>
+            <div class="detail-box">
+              <h6>
+                مسمن <span>شهى</span>
+              </h6>
+              <h5>
+                DH20.0
+              </h5>
+              <a href="">
+                اشتري الآن
+              </a>
+            </div>
+          </div>
+          <div class="box">
+            <div class="img-box">
+              <img src="images/maxresdefault.jpg" alt="رايف">
+            </div>
+            <div class="detail-box">
+              <h6>
+                رايف <span>لذيذ</span>
+              </h6>
+              <h5>
+                DH15.0
+              </h5>
+              <a href="">
+                اشتري الآن
+              </a>
+            </div>
+          </div>
+          <div class="box">
+            <div class="img-box">
+              <img src="images/maxresde.jpg" alt="مسمن">
+            </div>
+            <div class="detail-box">
+              <h6>
+                مسمن <span>لذيذ</span>
+              </h6>
+              <h5>
+                dh5.99
+              </h5>
+              <a href="">
+                اشتري الآن
+              </a>
+            </div>
+          </div>
+          <div class="box">
+            <div class="img-box">
+              <img src="images/hqdefault.jpg" alt="مسمن">
+            </div>
+            <div class="detail-box">
+              <h6>
+               رفيسة<span>لذيذ</span>
+              </h6>
+              <h5>
+                DH150.0
+              </h5>
+              <a href="">
+                اشتري الآن
+              </a>
+            </div>
+          </div>
 
-    <footer>
-        <ul class="links">
-            <li><a href="#">&copy; <script>document.write((new Date()).getFullYear())</script> Sif-Eddine Hebbaj</a></li>
-            <li ><a href="http://www.fsr.ac.ma/" target="_blank">FSR</a></li>
-            <li><a href="http://www.um5.ac.ma/um5/" target="_blank">UM5</a></li>
-            <li><a href="https://www.w3schools.com/" target="_blank">W3Schools Online Web</a></li>
-        </ul>
-    </footer>
-    <script src="js/script.js"></script>
+          <div class="box">
+            <div class="img-box">
+              <img src="images/rziza.jpg" alt="مسمن">
+            </div>
+            <div class="detail-box">
+              <h6>
+                رزيز<span>لذيذ</span>
+              </h6>
+              <h5>
+                DH15.0
+              </h5>
+              <a href="">
+                اشتري الآن
+              </a>
+            </div>
+          </div>
+
+
+          <div class="box">
+            <div class="img-box">
+              <img src="images/harcha.jpg" alt="مسمن">
+            </div>
+            <div class="detail-box">
+              <h6>
+               حرشا<span>لذيذ</span>
+              </h6>
+              <h5>
+                DH10.99
+              </h5>
+              <a href="">
+                اشتري الآن
+              </a>
+            </div>
+          </div>
+
+
+          <div class="box">
+            <div class="img-box">
+              <img src="images/baghrr.jpg" alt="مسمن">
+            </div>
+            <div class="detail-box">
+              <h6>
+                 بغرير <span>لذيذ</span>
+              </h6>
+              <h5>
+                DH5.0
+              </h5>
+              <a href="">
+                اشتري الآن
+              </a>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </section>
+
+    <!-- end chocolate section -->
+  
+    <!-- offer section -->
+
+    <section class="offer_section layout_padding">
+      <div class="container">
+        <div class="box">
+          <div class="detail-box">
+            <h2>
+              5% تخفيض على أي<br>  منتج !
+
+            </h2>
+            <h3>
+              استفد من العرض الخاص ديالنا! تمتع بتخفيض 5% على جميع منتجات . ما تفوتش هاد الفرصة اللذيذة.
+            </h3>
+            <a href="">
+              Buy Now
+            </a>
+          </div>
+          <div class="img-box">
+            <img src="images/" alt="">
+          </div>
+        </div>
+        <div class="btn-box">
+          <a href="">
+            <span>
+              See More
+            </span>
+            <img src="images/color-arrow.png" alt="">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- end offer section -->
+    <div id="wrapper">
+      <div class="container">
+        <div class="card-container">
+          <div class="card">
+            <div class="card-thumbnail">
+    
+              <div class="thumbnail-button new-button"></div>
+    
+              <a href="#" title="Voir le produit" class="thumbnail-link">
+                <img src="images/baghrr.jpg" alt="produit" class="product-image" />
+
+              </a>
+            </div><!-- /.card-thumbnail -->
+            <div class="card-infos">
+              <h2 class="product-name">الحرشا</h2>
+              <div class="product-price">
+                <div class="product-price-value">19.99 DH</div>
+              </div><!-- /.product-price -->
+    
+              <div class="caption">
+                <div class="product-bottom">
+                  <div class="btn-add-to-cart"><button>Ajouter au devis</button></div>
+                </div><!-- /.product-bottom -->
+              </div><!-- /.caption -->
+            </div><!-- /.card-infos -->
+          </div><!-- /.card -->
+        </div><!-- /.card-container -->
+        <div class="card-container">
+          <div class="card">
+            <div class="card-thumbnail">
+    
+              <div class="thumbnail-button new-button"></div>
+    
+              <a href="#" title="Voir le produit" class="thumbnail-link">
+                <img src="images/hqdefault.jpg" alt="produit" class="product-image" />
+              </a>
+            </div><!-- /.card-thumbnail -->
+            <div class="card-infos">
+              <h2 class="product-name">رفيسة</h2>
+              <div class="product-price">
+                <div class="product-price-value">199, 99 DH</div>
+              </div><!-- /.product-price -->
+              <div class="caption">
+    
+                <div class="product-bottom">
+                  <div class="btn-add-to-cart"><button> اشتري الآن</button></div>
+                </div><!-- /.product-bottom -->
+              </div><!-- /.caption -->
+            </div><!-- /.card-infos -->
+          </div><!-- /.card -->
+        </div><!-- /.card-container -->
+        <div class="card-container">
+          <div class="card">
+            <div class="card-thumbnail">
+    
+              <div class="thumbnail-button new-button"></div>
+    
+              <a href="#" title="Voir le produit" class="thumbnail-link">
+                <img src="images/offer-img.jpg" alt="produit" class="product-image" />
+              </a>
+            </div><!-- /.card-thumbnail -->
+            <div class="card-infos">
+              <h2 class="product-name">مسمن</h2>
+              <div class="product-price">
+                <div class="product-price-value">20.00 DH</div>
+              </div><!-- /.product-price -->
+              <div class="caption">
+    
+                <div class="product-bottom">
+                  <div class="btn-add-to-cart"><button> اشتري الآن</button></div>
+                </div><!-- /.product-bottom -->
+              </div><!-- /.caption -->
+            </div><!-- /.card-infos -->
+          </div><!-- /.card -->
+        </div><!-- /.card-container -->
+        <div class="card-container">
+          <div class="card">
+            <div class="card-thumbnail">
+    
+              <div class="thumbnail-button new-button"></div>
+    
+              <a href="#" title="Voir le produit" class="thumbnail-link">
+                <img src="images/rziza.jpg" alt="produit" class="product-image" />
+              </a>
+            </div><!-- /.card-thumbnail -->
+            <div class="card-infos">
+              <h2 class="product-name">رزيزا</h2>
+              <div class="product-price">
+                <div class="product-price-value">150.50 DH</div>
+              </div><!-- /.product-price -->
+              <div class="caption">
+    
+                <div class="product-bottom">
+                  <div class="btn-add-to-cart"><button> اشتري الآن</button></div>
+                </div><!-- /.product-bottom -->
+              </div><!-- /.caption -->
+            </div><!-- /.card-infos -->
+          </div><!-- /.card -->
+        </div><!-- /.card-container -->
+        <div class="card-container">
+          <div class="card">
+            <div class="card-thumbnail">
+    
+              <div class="thumbnail-button new-button"></div>
+    
+              <a href="#" title="Voir le produit" class="thumbnail-link">
+                <img src="images/cscs.jpg" alt="produit" class="product-image" />
+              </a>
+            </div><!-- /.card-thumbnail -->
+            <div class="card-infos">
+              <h2 class="product-name">كسكس</h2>
+              <div class="product-price">
+                <div class="product-price-value">149, 99 DH</div>
+              </div><!-- /.product-price -->
+              <div class="caption">
+    
+                <div class="product-bottom">
+                  <div class="btn-add-to-cart"><button> اشتري الآن</button></div>
+                </div><!-- /.product-bottom -->
+              </div><!-- /.caption -->
+            </div><!-- /.card-infos -->
+          </div><!-- /.card -->
+        </div><!-- /.card-container -->
+    
+      </div><!-- /.container -->
+    </div><!-- /#wrapper -->
+    <!-- client section -->
+
+
+  <!-- footer section -->
+  <footer class="container-fluid footer_section">
+    <div class="container">
+      <div class="col-md-11 col-lg-8 mx-auto">
+        <p>
+          &copy; <span id="displayYear"></span> JLM
+          <a href="@">Jeune Leader Marocain</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script  src="js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script  src="js/bootstrap.js"></script>
+  <!-- slick slider -->
+  <script  src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
+  <!-- custom js -->
+  <script  src="js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+  <!-- End Google Map -->
+
 </body>
+
 </html>
